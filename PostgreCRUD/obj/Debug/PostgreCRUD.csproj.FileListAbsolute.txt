@@ -1,0 +1,11 @@
+C:\Users\Pichau\source\repos\PostgreCRUD\PostgreCRUD\bin\Debug\PostgreCRUD.exe.config
+C:\Users\Pichau\source\repos\PostgreCRUD\PostgreCRUD\bin\Debug\PostgreCRUD.exe
+C:\Users\Pichau\source\repos\PostgreCRUD\PostgreCRUD\bin\Debug\PostgreCRUD.pdb
+C:\Users\Pichau\source\repos\PostgreCRUD\PostgreCRUD\bin\Debug\Npgsql.dll
+C:\Users\Pichau\source\repos\PostgreCRUD\PostgreCRUD\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Pichau\source\repos\PostgreCRUD\PostgreCRUD\bin\Debug\Npgsql.xml
+C:\Users\Pichau\source\repos\PostgreCRUD\PostgreCRUD\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Pichau\source\repos\PostgreCRUD\PostgreCRUD\obj\Debug\PostgreCRUD.csprojResolveAssemblyReference.cache
+C:\Users\Pichau\source\repos\PostgreCRUD\PostgreCRUD\obj\Debug\PostgreCRUD.csproj.CoreCompileInputs.cache
+C:\Users\Pichau\source\repos\PostgreCRUD\PostgreCRUD\obj\Debug\PostgreCRUD.exe
+C:\Users\Pichau\source\repos\PostgreCRUD\PostgreCRUD\obj\Debug\PostgreCRUD.pdb
