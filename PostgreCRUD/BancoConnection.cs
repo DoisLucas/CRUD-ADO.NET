@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Common;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Npgsql;
+﻿using Npgsql;
+using System;
 
 namespace ConsoleApp1
 {
@@ -15,7 +10,7 @@ namespace ConsoleApp1
         private const String SERVER = "localhost";
         private const String PORT = "5432";
         private const String USER = "postgres";
-        private const String PASSWORD = "123456";
+        private const String PASSWORD = "12345678";
         private const String DATABASE = "filmedb";
 
         private NpgsqlConnection connection = null;

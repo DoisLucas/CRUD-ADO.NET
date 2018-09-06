@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PostgreCRUD
+﻿namespace PostgreCRUD
 {
 
     //Tabela associativa, relação entre Filme e Diretor N/N (Um filme pode ter varios diretores e um diretor pode dirigir varios filmes)
