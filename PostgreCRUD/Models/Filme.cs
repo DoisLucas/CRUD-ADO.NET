@@ -5,10 +5,10 @@ namespace PostgreCRUD
     class Filme
 
     {
-        public int cod_filme { get; set; }
-        public string nome_filme { get; set; }
-        public DateTime data { get; set; }
-        public Categoria categoria { get; set; } 
+        public int Cod_filme { get; set; }
+        public string Nome_filme { get; set; }
+        public DateTime Data { get; set; }
+        public Categoria Categoria { get; set; } 
 
         public Filme()
         {
@@ -17,10 +17,10 @@ namespace PostgreCRUD
 
         public Filme(int cod_filme, string nome_filme, DateTime data, Categoria c)
         {
-            this.cod_filme = cod_filme;
-            this.nome_filme = nome_filme;
-            this.data = data;
-            this.categoria = c;
+            this.Cod_filme = cod_filme;
+            this.Nome_filme = nome_filme;
+            this.Data = data;
+            this.Categoria = c;
         }
                 
     }

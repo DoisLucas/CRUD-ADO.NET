@@ -5,9 +5,9 @@
     class FilmeDiretor
 
     {
-        public int id { get; set; }
-        public Filme filme { get; set; }
-        public Diretor diretor { get; set; }
+        public int Id { get; set; }
+        public Filme Filme { get; set; }
+        public Diretor Diretor { get; set; }
 
         public FilmeDiretor()
         {
@@ -16,9 +16,9 @@
 
         public FilmeDiretor(int id, Filme filme, Diretor diretor)
         {
-            this.id = id;
-            this.filme = filme;
-            this.diretor = diretor;
+            this.Id = id;
+            this.Filme = filme;
+            this.Diretor = diretor;
         }
                 
     }

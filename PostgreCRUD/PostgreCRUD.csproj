@@ -50,7 +50,6 @@
   <ItemGroup>
     <Compile Include="BancoConnection.cs" />
     <Compile Include="DAOs\CategoriaDAO.cs" />
-    <Compile Include="DAOs\FilmeDAO.cs" />
     <Compile Include="Models\FilmeDiretor.cs" />
     <Compile Include="Models\Filme.cs" />
     <Compile Include="Models\Diretor.cs" />

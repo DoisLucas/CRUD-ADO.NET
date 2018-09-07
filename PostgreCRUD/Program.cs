@@ -1,5 +1,6 @@
 ﻿using PostgreCRUD;
 using PostgreCRUD.DAOs;
+using System;
 
 namespace ConsoleApp1
 {
@@ -12,12 +13,24 @@ namespace ConsoleApp1
             bd.OpenConnection();
 
             CategoriaDAO cdao = new CategoriaDAO();
-            Categoria c1 = new Categoria("Ação");
-            Categoria c2 = new Categoria("Comedia");
-            Categoria c3 = new Categoria("Romance");
-            cdao.add_categoria(c1);
-            cdao.add_categoria(c2);
-            cdao.add_categoria(c3);
+            Categoria c1 = new Categoria(1, "Ação");
+            Categoria c2 = new Categoria(2, "Comedia");
+            Categoria c3 = new Categoria(3, "Romance");
+
+            //Create
+            cdao.Add(c1);
+            cdao.Add(c2);
+            cdao.Add(c3);
+
+            //Read
+            cdao.ShowAll();
+
+            //Update
+            cdao.Update(1, "Aventura");
+
+            //Remove
+            cdao.Remove(2);
+                       
         }
 
     }
