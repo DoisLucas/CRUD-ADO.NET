@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BancoConnection.cs" />
+    <Compile Include="DAOs\DiretorDAO.cs" />
     <Compile Include="DAOs\CategoriaDAO.cs" />
     <Compile Include="Models\FilmeDiretor.cs" />
     <Compile Include="Models\Filme.cs" />

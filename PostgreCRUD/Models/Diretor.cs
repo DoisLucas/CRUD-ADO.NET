@@ -3,8 +3,8 @@
     class Diretor
 
     {
-        private int Cod_diretor { get; set; }
-        private string Nome_diretor { get; set; }
+        public int Cod_diretor { get; set; }
+        public string Nome_diretor { get; set; }
 
         public Diretor()
         {
