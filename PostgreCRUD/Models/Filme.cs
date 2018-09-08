@@ -8,7 +8,7 @@ namespace PostgreCRUD
         public int Cod_filme { get; set; }
         public string Nome_filme { get; set; }
         public DateTime Data { get; set; }
-        public Categoria Categoria { get; set; } 
+        public Categoria Categoria { get; set; }
 
         public Filme()
         {
@@ -22,6 +22,6 @@ namespace PostgreCRUD
             this.Data = data;
             this.Categoria = c;
         }
-                
+
     }
 }

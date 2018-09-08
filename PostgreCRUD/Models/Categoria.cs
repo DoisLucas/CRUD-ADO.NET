@@ -15,6 +15,10 @@
             this.Cod_categoria = cod_categoria;
             this.Desc_categoria = desc_categoria;
         }
-                
+
+        public override string ToString()
+        {
+            return this.Cod_categoria + " - " + this.Desc_categoria;
+        }
     }
 }

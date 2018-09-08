@@ -10,7 +10,7 @@ namespace ConsoleApp1
         private const String SERVER = "localhost";
         private const String PORT = "5432";
         private const String USER = "postgres";
-        private const String PASSWORD = "fabercastell1";
+        private const String PASSWORD = "12345678";
         private const String DATABASE = "filmedb";
 
         private NpgsqlConnection connection = null;

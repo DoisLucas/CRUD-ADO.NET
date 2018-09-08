@@ -16,6 +16,6 @@
             this.Cod_diretor = cod_diretor;
             this.Nome_diretor = nome_diretor;
         }
-                
+
     }
 }
