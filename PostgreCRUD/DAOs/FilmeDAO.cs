@@ -17,6 +17,13 @@ namespace PostgreCRUD.DAOs
             {
                 bd.OpenConnection();
 
+                FilmeDiretorDAO fddao = new FilmeDiretorDAO();
+
+                //Método responsavel por remover todas as associções do filme com qualquer diretor
+                //fazendo com que antes de remover o filme, remova suas 
+                //dependências para evitar constraints errors.
+                fddao.removerPorFilme(id);
+
                 String query = "DELETE FROM tab_filme WHERE cod_filme = :id";
                 Npgsql.NpgsqlCommand sql = new Npgsql.NpgsqlCommand(query, bd.getConnection);
 
@@ -82,7 +89,7 @@ namespace PostgreCRUD.DAOs
 
         }
 
-        //Atualização passando como paramentro o ID e o novo atributo do Filme.
+        //Atualização passando como paramentro o ID e os novos atributos do Filme.
         public void Update(int id, string new_nome, DateTime new_data, Categoria new_categoria)
         {
             try
@@ -197,6 +204,9 @@ namespace PostgreCRUD.DAOs
                     //método getOne que retorna um Objeto do tipo Categoria.
                     f.Categoria = cdao.getOne(3);
 
+                    //Utilizo o método getDiretores que retorna toda lista de diretores do filme para fazer a atribuição.
+                    f.Diretores = this.getDiretores(f.Cod_filme);
+
                     return f;
                 }
 
@@ -231,6 +241,7 @@ namespace PostgreCRUD.DAOs
 
                 CategoriaDAO cdao = new CategoriaDAO();
 
+                //Esse trecho é executado pra cada filme.
                 while (dr.Read())
                 {
 
@@ -240,9 +251,12 @@ namespace PostgreCRUD.DAOs
                     f.Data = dr.GetDateTime(2);
 
                     //Como a classe filme tem um atributo do tipo Objeto Categoria,
-                    //utilizo a instancia de CategoriaDAO pra pegar o objeto a partir do ID que o banco me retorna, com esse ID passo pro
+                    //é utilizada a instancia de CategoriaDAO pra pegar o objeto a partir do ID que o banco retorna, esse ID é passado para o
                     //método getOne que retorna um Objeto do tipo Categoria.
                     f.Categoria = cdao.getOne(3);
+
+                    //Utilizo o método getDiretores que retorna toda lista de diretores do filme para fazer a atribuição.
+                    f.Diretores = this.getDiretores(f.Cod_filme);
 
                     retorno.Add(f);
                 }
@@ -260,6 +274,30 @@ namespace PostgreCRUD.DAOs
             return retorno;
         }
 
+        //Método responsavel por retornar todos os diretores do filme.
+        public List<Diretor> getDiretores(int cod_filme)
+        {
+            bd.OpenConnection();
+            List<Diretor> diretores = new List<Diretor>();
 
+            String query = "SELECT * FROM tab_filme_diretor WHERE cod_filme = :cod_filme";
+            Npgsql.NpgsqlCommand sql = new Npgsql.NpgsqlCommand(query, bd.getConnection);
+
+            sql.Parameters.Add(new NpgsqlParameter("cod_filme", NpgsqlTypes.NpgsqlDbType.Integer));
+            sql.Prepare();
+            sql.Parameters[0].Value = cod_filme;
+
+            NpgsqlDataReader dr = sql.ExecuteReader();
+
+            while (dr.Read())
+            {
+                DiretorDAO ddao = new DiretorDAO();
+                //Adiciona na lista de diretores que vai ser retornada, o diretor pelo metodo
+                //getOne que recebe como parâmetro o ID retornado do banco e faz o retorno do Objeto.
+                diretores.Add(ddao.getOne(dr.GetInt32(1)));
+            }
+            return diretores;
+        }
+       
     }
 }

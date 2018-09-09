@@ -14,16 +14,22 @@ namespace ConsoleApp1
 
             CategoriaDAO cdao = new CategoriaDAO();
             Categoria c = new Categoria(1, "Aventura");
-            cdao.Add(c);
+            //cdao.Add(c);
 
             DiretorDAO ddao = new DiretorDAO();
-            Diretor d = new Diretor(1, "Pedro");
-            ddao.Add(d);
+            //Diretor d = new Diretor(1, "Pedro");
+            //ddao.Add(d);
+            //Diretor d1 = new Diretor(2, "Lucas");
+            //ddao.Add(d1);
 
             FilmeDAO fdao = new FilmeDAO();
-            Filme f = new Filme(1, "Interstelar", Convert.ToDateTime("27/11/2007"), c);
-            fdao.Add(f);
+            //Filme f = new Filme(1, "Interstelar", Convert.ToDateTime("27/11/2007"), c);
+            //fdao.Add(f);
             //f.AddDiretor(d);
+            //f.AddDiretor(d1);
+
+            fdao.Remove(1);
+
 
 
         }

@@ -141,7 +141,6 @@ namespace PostgreCRUD.DAOs
                 if (Convert.ToBoolean(linhasAfetadas))
                 {
                     Console.WriteLine("Categoria adicionada com sucesso!");
-
                 }
 
             }
@@ -176,11 +175,9 @@ namespace PostgreCRUD.DAOs
 
                 while (dr.Read())
                 {
-
                     Categoria c = new Categoria();
                     c.Cod_categoria = dr.GetInt32(0);
                     c.Desc_categoria = dr.GetString(1);
-
                     return c;
                 }
 
@@ -215,12 +212,10 @@ namespace PostgreCRUD.DAOs
 
                 while (dr.Read())
                 {
-
                     Categoria c = new Categoria();
                     c.Cod_categoria = dr.GetInt32(0);
                     c.Desc_categoria = dr.GetString(1);
                     retorno.Add(c);
-
                 }
 
             }

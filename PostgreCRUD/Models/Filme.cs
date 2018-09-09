@@ -42,5 +42,13 @@ namespace PostgreCRUD
 
         }
 
+        public List<Diretor> getDiretores()
+        {
+
+            FilmeDAO fdao = new FilmeDAO();
+            return fdao.getDiretores(this.Cod_filme);
+            
+        }
+
     }
 }

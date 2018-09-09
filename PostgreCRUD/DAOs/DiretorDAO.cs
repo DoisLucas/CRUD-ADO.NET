@@ -164,7 +164,7 @@ namespace PostgreCRUD.DAOs
             {
                 bd.OpenConnection();
 
-                String query = "SELECT * FROM tab_diretor WHERE cod_categoria = :id";
+                String query = "SELECT * FROM tab_diretor WHERE cod_diretor = :id";
                 Npgsql.NpgsqlCommand sql = new Npgsql.NpgsqlCommand(query, bd.getConnection);
 
                 sql.Parameters.Add(new NpgsqlParameter("id", NpgsqlTypes.NpgsqlDbType.Integer));
