@@ -10,8 +10,7 @@ namespace PostgreCRUD.DAOs
 
         BancoConnection bd = new BancoConnection();
 
-        //Id
-
+        //Remoção por id.
         public void Remove(int id)
         {
             try
@@ -47,6 +46,7 @@ namespace PostgreCRUD.DAOs
 
         }
 
+        //Mostra todos os registro do banco diretamente, sem fazer cast para objeto.
         public void ShowAll()
         {
             try
@@ -82,6 +82,7 @@ namespace PostgreCRUD.DAOs
 
         }
 
+        //Atualização passando como paramentro o ID e o novo atributo da Categoria.
         public void Update(int id, string new_desc_cateogoria)
         {
             try
@@ -119,8 +120,7 @@ namespace PostgreCRUD.DAOs
 
         }
 
-        //Objeto
-
+        //Insert no banco recebendo como parametro uma Categoria.
         public void Add(Categoria c)
         {
             try
@@ -156,6 +156,7 @@ namespace PostgreCRUD.DAOs
 
         }
 
+        //Método responsável por retornar uma Categoria cujo ID seja igual o passado pelo parâmetro.
         public Categoria getOne(int id)
         {
 
@@ -196,6 +197,7 @@ namespace PostgreCRUD.DAOs
             return null;
         }
 
+        //Método responsável por retornar todas as categorias fazendo um cast para objeto, retornando uma lista com todos os diretores do banco. 
         public List<Categoria> getAll()
         {
 

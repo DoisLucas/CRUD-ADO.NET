@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PostgreCRUD.DAOs;
+using System;
+using System.Collections.Generic;
 
 namespace PostgreCRUD
 {
@@ -9,10 +11,11 @@ namespace PostgreCRUD
         public string Nome_filme { get; set; }
         public DateTime Data { get; set; }
         public Categoria Categoria { get; set; }
+        public List<Diretor> Diretores { get; set; }
 
         public Filme()
         {
-
+            this.Diretores = new List<Diretor>();
         }
 
         public Filme(int cod_filme, string nome_filme, DateTime data, Categoria c)
@@ -21,6 +24,22 @@ namespace PostgreCRUD
             this.Nome_filme = nome_filme;
             this.Data = data;
             this.Categoria = c;
+            this.Diretores = new List<Diretor>();
+        }
+
+        public override string ToString()
+        {
+            return this.Cod_filme + " - " + this.Nome_filme + " - " + this.Data.ToString() + " - " + this.Categoria;
+        }
+
+        public void AddDiretor(Diretor d)
+        {
+            this.Diretores.Add(d);
+            d.filmes.Add(this);
+
+            FilmeDiretorDAO fddao = new FilmeDiretorDAO();
+            fddao.Add(this.Cod_filme, d.Cod_diretor);
+
         }
 
     }
