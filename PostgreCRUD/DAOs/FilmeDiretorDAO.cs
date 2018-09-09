@@ -7,7 +7,6 @@ namespace PostgreCRUD.DAOs
 {
     class FilmeDiretorDAO
     {
-
         BancoConnection bd = new BancoConnection();
 
         //Adição na tabela associativa, recebendo o ID do filme e do diretor respectivamente.
@@ -47,6 +46,8 @@ namespace PostgreCRUD.DAOs
         {
             try
             {
+                bd.OpenConnection();
+
                 String query = "DELETE FROM tab_filme_diretor WHERE cod_diretor = :id";
                 Npgsql.NpgsqlCommand sql = new Npgsql.NpgsqlCommand(query, bd.getConnection);
 
@@ -61,6 +62,10 @@ namespace PostgreCRUD.DAOs
             {
                 Console.WriteLine(e);
             }
+            finally
+            {
+                bd.CloseConnection();
+            }
         }
 
         //Remove todas relaçoes de um filme a qualquer diretor.
@@ -68,6 +73,8 @@ namespace PostgreCRUD.DAOs
         {
             try
             {
+                bd.OpenConnection();
+
                 String query = "DELETE FROM tab_filme_diretor WHERE cod_filme = :id";
                 Npgsql.NpgsqlCommand sql = new Npgsql.NpgsqlCommand(query, bd.getConnection);
 
@@ -81,6 +88,10 @@ namespace PostgreCRUD.DAOs
             catch (NpgsqlException e)
             {
                 Console.WriteLine(e);
+            }
+            finally
+            {
+                bd.CloseConnection();
             }
         }
 

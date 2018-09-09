@@ -7,7 +7,6 @@ namespace PostgreCRUD.DAOs
 {
     class FilmeDAO
     {
-
         BancoConnection bd = new BancoConnection();
 
         //Remoção por id.
@@ -15,14 +14,15 @@ namespace PostgreCRUD.DAOs
         {
             try
             {
-                bd.OpenConnection();
-
+                
                 FilmeDiretorDAO fddao = new FilmeDiretorDAO();
 
                 //Método responsavel por remover todas as associções do filme com qualquer diretor
                 //fazendo com que antes de remover o filme, remova suas 
                 //dependências para evitar constraints errors.
                 fddao.removerPorFilme(id);
+
+                bd.OpenConnection();
 
                 String query = "DELETE FROM tab_filme WHERE cod_filme = :id";
                 Npgsql.NpgsqlCommand sql = new Npgsql.NpgsqlCommand(query, bd.getConnection);
@@ -204,7 +204,7 @@ namespace PostgreCRUD.DAOs
                     //método getOne que retorna um Objeto do tipo Categoria.
                     f.Categoria = cdao.getOne(3);
 
-                    //Utilizo o método getDiretores que retorna toda lista de diretores do filme para fazer a atribuição.
+                    //É utilizado o método getDiretores que retorna toda lista de diretores do filme para fazer a atribuição.
                     f.Diretores = this.getDiretores(f.Cod_filme);
 
                     return f;
@@ -255,7 +255,7 @@ namespace PostgreCRUD.DAOs
                     //método getOne que retorna um Objeto do tipo Categoria.
                     f.Categoria = cdao.getOne(3);
 
-                    //Utilizo o método getDiretores que retorna toda lista de diretores do filme para fazer a atribuição.
+                    //É utilizado método getDiretores que retorna toda lista de diretores do filme para fazer a atribuição.
                     f.Diretores = this.getDiretores(f.Cod_filme);
 
                     retorno.Add(f);

@@ -29,9 +29,10 @@ namespace PostgreCRUD
 
         public override string ToString()
         {
-            return this.Cod_filme + " - " + this.Nome_filme + " - " + this.Data.ToString() + " - " + this.Categoria;
+            return this.Cod_filme + " - " + this.Nome_filme + " - " + this.Data.ToString() + " - " + this.Categoria.Desc_categoria;
         }
 
+        //Adição cruzada, adicionando diretor no filme e filme no diretor.
         public void AddDiretor(Diretor d)
         {
             this.Diretores.Add(d);
@@ -42,12 +43,10 @@ namespace PostgreCRUD
 
         }
 
-        public List<Diretor> getDiretores()
+        public List<Diretor> GetDiretores()
         {
-
             FilmeDAO fdao = new FilmeDAO();
             return fdao.getDiretores(this.Cod_filme);
-            
         }
 
     }

@@ -7,7 +7,6 @@ namespace PostgreCRUD.DAOs
 {
     class DiretorDAO
     {
-
         BancoConnection bd = new BancoConnection();
 
         //Remoção por id.
@@ -15,6 +14,14 @@ namespace PostgreCRUD.DAOs
         {
             try
             {
+
+                FilmeDiretorDAO fddao = new FilmeDiretorDAO();
+
+                //Método responsavel por remover todas as associções do diretor com qualquer filme
+                //fazendo com que antes de remover o diretor, remova suas 
+                //dependências para evitar constraints errors.
+                fddao.removerPorDiretor(id);
+
                 bd.OpenConnection();
 
                 String query = "DELETE FROM tab_diretor WHERE cod_diretor = :id";
@@ -181,6 +188,9 @@ namespace PostgreCRUD.DAOs
                     d.Cod_diretor = dr.GetInt32(0);
                     d.Nome_diretor = dr.GetString(1);
 
+                    //É utilizado o método getFilmes que retorna toda lista de filmes do diretor para fazer a atribuição.
+                    d.filmes = this.getFilmes(d.Cod_diretor);
+
                     return d;
                 }
 
@@ -213,12 +223,17 @@ namespace PostgreCRUD.DAOs
 
                 NpgsqlDataReader dr = sql.ExecuteReader();
 
+                //Esse trecho é executado para cada diretor
                 while (dr.Read())
                 {
 
                     Diretor d = new Diretor();
                     d.Cod_diretor = dr.GetInt32(0);
                     d.Nome_diretor = dr.GetString(1);
+
+                    //É utilizado o método getFilmes que retorna toda lista de filmes do diretor para fazer a atribuição.
+                    d.filmes = this.getFilmes(d.Cod_diretor);
+
                     retorno.Add(d);
 
                 }
@@ -234,6 +249,31 @@ namespace PostgreCRUD.DAOs
             }
 
             return retorno;
+        }
+
+        //Método responsavel por retornar todos os filmes do diretor.
+        public List<Filme> getFilmes(int cod_diretor)
+        {
+            bd.OpenConnection();
+            List<Filme> filmes = new List<Filme>();
+
+            String query = "SELECT * FROM tab_filme_diretor WHERE cod_diretor = :cod_diretor";
+            Npgsql.NpgsqlCommand sql = new Npgsql.NpgsqlCommand(query, bd.getConnection);
+
+            sql.Parameters.Add(new NpgsqlParameter("cod_diretor", NpgsqlTypes.NpgsqlDbType.Integer));
+            sql.Prepare();
+            sql.Parameters[0].Value = cod_diretor;
+
+            NpgsqlDataReader dr = sql.ExecuteReader();
+
+            while (dr.Read())
+            {
+                FilmeDAO fdao = new FilmeDAO();
+                //Adiciona na lista de diretores que vai ser retornada, o diretor pelo metodo
+                //getOne que recebe como parâmetro o ID retornado do banco e faz o retorno do Objeto.
+                filmes.Add(fdao.getOne(dr.GetInt32(1)));
+            }
+            return filmes;
         }
 
     }
