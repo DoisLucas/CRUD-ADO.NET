@@ -5,7 +5,7 @@ O “modelo desconectado” ADO.NET utiliza dois tipos de objetos para aceder à
 
 **.NET Data Provider:** Um provedor de dados do .NET Framework é usado para se conectar a um banco de dados, executar comandos e recuperar resultados. Os resultados são processados diretamente, colocados no DataSet para serem expostos ao usuário conforme o necessário, combinados com os dados de várias fontes ou colocados remotamente entre camadas. Os provedores de dados .NET Framework são leves, criando uma camada mínima entre a fonte de dados e o código, aumentando o desempenho sem sacrificar a funcionalidade.
 
-**NpgSQL Provider:** Npgsql é um provider .NET para PostgreSQL. Ele permite que qualquer aplicação desenvolvida em .NET Framework acesse o banco de dados. Seu código foi escrito totalmente em C#. É compatível com banco de dados PostGreSQL 7.x ou versões superiores.
+**NpgSQL Provider:** Npgsql é um provider .NET para PostgreSQL. Ele permite que qualquer aplicação desenvolvida em .NET Framework acesse o banco de dados. Seu código foi escrito totalmente em C#. É compatível com banco de dados PostgreSQL 7.x ou versões superiores.
 
 <p align="center">
 
