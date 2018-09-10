@@ -20,7 +20,7 @@ O “modelo desconectado” ADO.NET utiliza dois tipos de objetos para aceder à
 ```SQL
 CREATE TABLE public.tab_categoria
 (
-  cod_categoria integer NOT NULL DEFAULT nextval('tab_categoria_cod_categoria_seq'::regclass),
+  cod_categoria SERIAL NOT NULL,
   desc_categoria character varying(150) NOT NULL,
   CONSTRAINT tab_categoria_pkey PRIMARY KEY (cod_categoria),
   CONSTRAINT tab_categoria_desc_categoria_key UNIQUE (desc_categoria)
@@ -29,7 +29,7 @@ CREATE TABLE public.tab_categoria
 ```SQL
 CREATE TABLE public.tab_diretor
 (
-  cod_diretor integer NOT NULL DEFAULT nextval('tab_diretor_cod_diretor_seq'::regclass),
+  cod_diretor SERIAL NOT NULL,
   nome_diretor character varying(250) NOT NULL,
   CONSTRAINT tab_diretor_pkey PRIMARY KEY (cod_diretor)
 )
@@ -38,7 +38,7 @@ CREATE TABLE public.tab_diretor
 ```SQL
 CREATE TABLE public.tab_filme
 (
-  cod_filme integer NOT NULL DEFAULT nextval('tab_filme_cod_filme_seq'::regclass),
+  cod_filme SERIAL NOT NULL,
   nome_filme character varying(250) NOT NULL,
   data_filme date NOT NULL,
   cod_categoria integer NOT NULL,
