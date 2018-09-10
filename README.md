@@ -1,5 +1,7 @@
 # CRUD-ADO.NET
 
+**CRUD:** (Create, Read, Update e Delete) são as quatro operações básicas utilizadas em bases de dados relacionais (RDBMS) ou em interface para utilizadores para criação, consulta, atualização e destruição de dados. 
+
 **ADO.NET:** ADO.NET (ou a nova tecnologia ActiveX Data Objects) consiste num conjunto de classes definidas pela .NET framework (localizadas no namespace System.Data) que pode ser utilizado para aceder aos dados armazenados numa base de dados remota.
 O “modelo desconectado” ADO.NET utiliza dois tipos de objetos para aceder à base de dados: os objetos Dataset, que podem conter um ou mais Data Table, e os .NET Data Provider.
 
