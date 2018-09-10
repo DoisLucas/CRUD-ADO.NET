@@ -64,3 +64,11 @@ CREATE TABLE public.tab_filme_diretor
 )
 ```
 
+**MODELO LÓGICO:**
+
+<p align="center">
+
+<img src="https://github.com/DoisLucas/CRUD-ADO.NET/blob/master/resources/modelo.PNG?raw=true" width="150%" height="150%"/>
+
+</p>
+
