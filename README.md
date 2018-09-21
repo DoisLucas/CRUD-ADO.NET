@@ -72,3 +72,5 @@ CREATE TABLE public.tab_filme_diretor
 
 </p>
 
+*Clique na imagem para dar zoom*
+
